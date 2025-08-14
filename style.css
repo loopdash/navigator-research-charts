@@ -201,9 +201,12 @@ hr {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .chart-container-wrapper {
+        padding: 15px;
+    }
     .dw-chart-body-content {
-        padding: 20px;
-        margin: 10px;
+        padding: 0;
+        margin: 0px;
     }
     
     .bc-row {
@@ -239,7 +242,7 @@ hr {
 
 @media (max-width: 480px) {
     .bc-bars {
-        flex-direction: column;
+        flex-direction: row;
         gap: 8px;
     }
     

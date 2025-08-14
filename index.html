@@ -58,10 +58,10 @@
                     const rowDiv = document.createElement('div');
                     rowDiv.className = 'bc-row';
                     rowDiv.innerHTML = `
-                        <div class="bc-row-label row-label chart-text label" style="width: 30.419%;">
+                        <div class="bc-row-label row-label chart-text label">
                             <span>${rowLabel}</span>
                         </div>
-                        <div class="bc-bars" style="gap: 10px; width: 69.581%;">
+                        <div class="bc-bars" style="">
                             ${createBar(febValue)}
                             ${createBar(marValue)}
                             ${createBar(julValue)}
@@ -93,7 +93,7 @@
 
             function getColorForValue(value) {
                 if (value > 40) return 'rgb(164, 182, 212)'; // Light blue
-                if (value > 30) return 'rgb(92, 125, 179)';   // Dark blue
+                if (value > 30) return 'rgb(204, 166, 147)';   // Dark blue
                 return 'rgb(6, 135, 75)';                   // Green
             }
         </script>
