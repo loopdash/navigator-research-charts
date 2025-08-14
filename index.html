@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Options - Navigator Research</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content-container">
+        <div class="chart-heading-container">
+            <h1>Data Visualization Options for the Navigator Research Website.</h1>
+            <h2>Below are a few solutions for visualizing data. One option is custom, while the other is based off of Datawrapper.</h2>
+            <hr/>
+            <h3>Option One: Custom</h3>
+            <p>This option, built using straightforward web technologies like HTML, CSS, and JavaScript, offers complete customization without relying on costly third-party tools. This approach makes insights easily accessible to your audience, enhancing the overall data visualization experience.</p>
+            <p>Though still in the prototype stage, this chart demonstrates our ability to tailor data visualization to your specific needs. It provides a practical and adaptable solution that can be styled to align with your brand, serving as a foundation for further development and refinement.</p>
+        </div>
+        <div class="chart-container-wrapper">
+            <div class="container-wrapper-heading">
+                <h3>Shifts in President Trump's Job Approval Ratings on Issues</h3>
+                <h4>Do you approve or disapprove of the way Donald Trump is handling?</h4>
+            </div>
+            <div id="chart-container" class="dw-chart-body-content"></div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+        <script>
+            const csvData = `X.1,<b>Feb 2025</b>,<b>Mar 2025</b>,<b>Jul 2025</b>
+    The situation with Iran,n/a,n/a,42
+    Foreign affairs,44,41,41
+    Immigration,46,n/a,38
+    The economy,42,41,37
+    Middle East situation between Israelis/Palestinians,40,n/a,36
+    Foreign trade,42,n/a,36
+    The situation in Ukraine,n/a,41,33
+    The federal budget,n/a,43,29`;
+
+            Papa.parse(csvData, {
+                header: true,
+                complete: function(results) {
+                    renderChart(results.data);
+                }
+            });
+
+            function renderChart(data) {
+                const chartContainer = document.getElementById('chart-container');
+                chartContainer.innerHTML = ''; // Clear previous content
+
+                data.forEach(row => {
+                    const rowLabel = row['X.1'];
+                    const febValue = parseFloat(row['<b>Feb 2025</b>']) || 0;
+                    const marValue = parseFloat(row['<b>Mar 2025</b>']) || 0;
+                    const julValue = parseFloat(row['<b>Jul 2025</b>']) || 0;
+
+                    const rowDiv = document.createElement('div');
+                    rowDiv.className = 'bc-row';
+                    rowDiv.innerHTML = `
+                        <div class="bc-row-label row-label chart-text label" style="width: 30.419%;">
+                            <span>${rowLabel}</span>
+                        </div>
+                        <div class="bc-bars" style="gap: 10px; width: 69.581%;">
+                            ${createBar(febValue)}
+                            ${createBar(marValue)}
+                            ${createBar(julValue)}
+                        </div>
+                    `;
+
+                    chartContainer.appendChild(rowDiv);
+                });
+            }
+
+            function createBar(value) {
+                const rightValue = 100 - value; // Assuming values are percentages
+                const backgroundColor = getColorForValue(value);
+
+                return `
+                    <div class="bc-split" role="cell" style="width: 33.3333%;">
+                        <div class="bc-split-inner">
+                            <div class="bc-bar-bg dw-rect">
+                                <div class="bc-bar-inner dw-rect" style="left: 0%; right: ${rightValue}%; background: ${backgroundColor};">
+                                    <div class="bc-bar-label chart-text value label inside align-right" style="margin-right: 0px;">
+                                        <span>${value}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function getColorForValue(value) {
+                if (value > 40) return 'rgb(164, 182, 212)'; // Light blue
+                if (value > 30) return 'rgb(92, 125, 179)';   // Dark blue
+                return 'rgb(6, 135, 75)';                   // Green
+            }
+        </script>
+
+
+        <hr/>
+        <div class="chart-heading-container">
+            <h3>Option Two: Datawrapper</h3>
+            <p>This option leverages Datawrapper, a tool that allows for the creation of interactive and visually appealing data visualizations. Datawrapper is free to use, but customization of appearance and removal of Datawrapper branding requires a subscription at $599/month.</p></p>
+        </div>
+        <div style="min-height:310px" id="datawrapper-vis-UQ9Un"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/UQ9Un/embed.js" charset="utf-8" data-target="#datawrapper-vis-UQ9Un"></script><noscript><img src="https://datawrapper.dwcdn.net/UQ9Un/full.png" alt="Shifts in President Trump's Job Approval Ratings on Issues (Split Bars)" /></noscript></div>
+    </div>
+
+</body>
+</html>
