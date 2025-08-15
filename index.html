@@ -13,11 +13,11 @@
     <div class="content-container">
         <div class="chart-heading-container">
             <h1>Data Visualization Options for the Navigator Research Website.</h1>
-            <h2>Below are a few solutions for visualizing data. One option is custom, while the other is based off of Datawrapper.</h2>
+            <h2>Below are a few solutions for visualizing data. Option One is custom, while Option Two is supported by Datawrapper.</h2>
             <hr/>
             <h3>Option One: Custom</h3>
-            <p>This option, built using straightforward web technologies like HTML, CSS, and JavaScript, offers complete customization without relying on costly third-party tools. This approach makes insights easily accessible to your audience, enhancing the overall data visualization experience.</p>
-            <p>Though still in the prototype stage, this chart demonstrates our ability to tailor data visualization to your specific needs. It provides a practical and adaptable solution that can be styled to align with your brand, serving as a foundation for further development and refinement.</p>
+            <p>While still in the prototype phase, Option One showcases the potential styling that will align with Navigator Research's future brand and web aesthetic. Fonts, colors, borders, spacing, and corner radius are independently customizable, allowing for precise alignment with brand specifications</p>
+            <p>However, the greatest advantage of this approach is its ability to offer full customization without the need for expensive third-party tools. Visualizations will render responsively on any device. This method provides a practical and adaptable framework, enabling tailored branding and establishing a solid foundation for future development and enhancements.</p>
         </div>
         <div class="chart-container-wrapper">
             <div class="container-wrapper-heading">
@@ -92,19 +92,29 @@
             }
 
             function getColorForValue(value) {
-                if (value > 40) return 'rgb(164, 182, 212)'; // Light blue
-                if (value > 30) return 'rgb(204, 166, 147)';   // Dark blue
-                return 'rgb(6, 135, 75)';                   // Green
+                if (value > 40) return 'rgb(111, 123, 239)';
+                if (value > 30) return 'rgb(255, 158, 158)';
+                return 'rgb(223, 76, 78)';
             }
         </script>
 
 
         <hr/>
+        
         <div class="chart-heading-container">
             <h3>Option Two: Datawrapper</h3>
-            <p>This option leverages Datawrapper, a tool that allows for the creation of interactive and visually appealing data visualizations. Datawrapper is free to use, but customization of appearance and removal of Datawrapper branding requires a subscription at $599/month.</p></p>
+            <p>This option leans on <a href="https://datawrapper.dwcdn.net/" target="_blank">Datawrapper</a>, a tool that creates interactive charts and data visualizations. The free version allows you to easily build multiple charts, however you cannot modify colors or remove the Datawrapper branding on the free plan.</p>
+            <p>The Custom plan enables you to tailor the appearance and remove the Datawrapper branding which is priced at $599/month. Regardless of plan, the charts are captivating and will provide a strong fundamental infrastructure for publications and reporting.</p>
         </div>
-        <div style="min-height:310px" id="datawrapper-vis-UQ9Un"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/UQ9Un/embed.js" charset="utf-8" data-target="#datawrapper-vis-UQ9Un"></script><noscript><img src="https://datawrapper.dwcdn.net/UQ9Un/full.png" alt="Shifts in President Trump's Job Approval Ratings on Issues (Split Bars)" /></noscript></div>
+        <div class="chart-container-wrapper">
+            <div style="min-height:310px" id="datawrapper-vis-UQ9Un"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/UQ9Un/embed.js" charset="utf-8" data-target="#datawrapper-vis-UQ9Un"></script><noscript><img src="https://datawrapper.dwcdn.net/UQ9Un/full.png" alt="Shifts in President Trump's Job Approval Ratings on Issues (Split Bars)" /></noscript></div>
+        </div>
+
+        <div class="chart-heading-container">
+            <h3>Conclusion</h3>
+            <p>In conclusion, each solution is robust, offering unique benefits. The custom approach provides complete flexibility and brand precision without recurring costs, though it requires a larger upfront developmenteffort. In contrast, Datawrapper offers an easy-to-use platform for interactive charts, but full customization and watermark removal come at $599/month. Rest assured, either choice will provide a robust foundation for allowing you to create engaging and informative data visualizations.</p>
+            <p>Thank you for your consideration. If you have any questions, please feel free to send an email to <a href="mailto:gary@loopdash.com">gary@loopdash.com</a> or <a href="https://loopda.sh/meet">book a call</a>. Looking forward to working together.</p>
+        </div>
     </div>
 
 </body>
