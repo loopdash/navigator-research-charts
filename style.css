@@ -20,11 +20,11 @@ body {
     flex-direction: column;
     gap: 40px;
 }
-.content-container a {
+.content-container p a {
     color: #777777;
 }
 
-.content-container a:hover {
+.content-container p a:hover {
     color: #3f3f3f;
     transition: all 0.3s ease;
     text-decoration: underline;
