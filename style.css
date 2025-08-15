@@ -21,7 +21,7 @@ body {
     gap: 40px;
 }
 .content-container p a {
-    color: #777777;
+    color: #777777 !important;
 }
 
 .content-container p a:hover {
